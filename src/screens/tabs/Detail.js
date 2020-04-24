@@ -20,9 +20,9 @@ export default ({navigation, route}) => {
     <Container>
       <Text>Detail</Text>
       <MovieContainer>
-        <Image source={{uri: movie.small_cover_image}} />
-        <Text>{movie.title}</Text>
-        <Text>{movie.rating}</Text>
+        <Image source={{uri: ''}} />
+        <Text>타이틀</Text>
+        <Text>별점</Text>
       </MovieContainer>
     </Container>
   );

@@ -30,22 +30,13 @@ const Button = styled.TouchableOpacity`
   margin: 10px;
 `;
 
-const Login = ({navigation, login, setIsLoggedin}) => {
+const Login = ({}) => {
   const [loading, setLoading] = useState(false);
   const {value: emailVal, onChangeText: onChangeEmail} = useInput('');
   const {value: pwVal, onChangeText: onChangePw} = useInput('');
 
   const handleLogin = async () => {
-    if (emailVal === '' || pwVal === '') {
-      Alert.alert('칸을 모두 채워주세요');
-      return;
-    }
-    setLoading(true);
-    const isSuccess = await login(emailVal, pwVal);
-    if (isSuccess) {
-      setTimeout(() => setIsLoggedin(true), 1000);
-    }
-    setTimeout(() => setLoading(false), 1000);
+    // TODO:
   };
 
   return (
@@ -70,8 +61,7 @@ const Login = ({navigation, login, setIsLoggedin}) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  login: (email, pw) => dispatch(login(email, pw)),
-  setIsLoggedin: isLoggedin => dispatch(setIsLoggedin(isLoggedin)),
+  // TODO:
 });
 
 export default connect(

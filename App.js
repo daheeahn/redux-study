@@ -1,45 +1,34 @@
 import React, {useEffect, useState} from 'react';
 import {Text} from 'react-native';
-import {Provider} from 'react-redux';
-import store from './src/store';
-import NavController from './src/screens/NavController';
 import AsyncStorage, {
   useAsyncStorage,
 } from '@react-native-community/async-storage';
 import {connect} from 'react-redux';
-import {setIsLoggedin} from './src/store';
 
-const App = ({isLoggedin, setIsLoggedin}) => {
-  const {getItem, setItem} = useAsyncStorage('isLoggedin');
-
+const App = ({}) => {
   const preLoad = async () => {
-    AsyncStorage.clear();
-    const isLoggedInFS = await getItem();
-    if (isLoggedInFS === null || isLoggedInFS === 'false') {
-      setIsLoggedin(false);
-    } else {
-      setIsLoggedin(true);
-    }
+    // TODO: 로그인 여부 확인
   };
 
   useEffect(() => {
     preLoad();
   }, []);
 
-  return isLoggedin !== null ? <NavController /> : <Text>Splash</Text>;
+  return (
+    // TODO: 로그인 여부의 체크 여부 확인 후 NavController or Splash
+    <Text>App</Text>
+  );
 };
 
 const mapStateToProps = state => {
   return {
-    isLoggedin: state.isLoggedin,
+    // TODO: 필요한 state 정의
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    setIsLoggedin: isLoggedin => {
-      dispatch(setIsLoggedin(isLoggedin));
-    },
+    // TODO: 필요한 dispatch 정의
   };
 };
 

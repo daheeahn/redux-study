@@ -17,16 +17,10 @@ const Image = styled.Image`
 export default ({navigation}) => {
   const [loading, setLoading] = useState(false);
   const [movieTop3, setMovieTop3] = useState(null);
+
   const getData = async () => {
+    // https://yts.mx/api/v2/list_movies.json?limit=3
     try {
-      const response = await fetch(
-        'https://yts.mx/api/v2/list_movies.json?limit=3',
-      );
-      const {
-        data: {movies},
-      } = await response.json();
-      console.log(movies);
-      setMovieTop3(movies);
     } catch (error) {}
   };
 
