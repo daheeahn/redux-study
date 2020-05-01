@@ -2,17 +2,20 @@ import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 
 const initialState = {
-  isLoggedin: false,
+  isLoggedin: null,
   token: null,
 };
 
 export const SET_IS_LOGGEDIN = 'SET_IS_LOGGEDIN';
 
 // action creator
-export const setIsLoggedin = isLoggedin => ({
-  type: SET_IS_LOGGEDIN,
-  isLoggedin,
-});
+export const setIsLoggedin = isLoggedin => {
+  console.log('오니???');
+  return {
+    type: SET_IS_LOGGEDIN,
+    isLoggedin,
+  };
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

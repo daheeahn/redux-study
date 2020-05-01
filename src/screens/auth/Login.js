@@ -30,13 +30,14 @@ const Button = styled.TouchableOpacity`
   margin: 10px;
 `;
 
-const Login = ({}) => {
+const Login = ({setIsLoggedin}) => {
   const [loading, setLoading] = useState(false);
   const {value: emailVal, onChangeText: onChangeEmail} = useInput('');
   const {value: pwVal, onChangeText: onChangePw} = useInput('');
 
   const handleLogin = async () => {
     // TODO:
+    setIsLoggedin(true);
   };
 
   return (
@@ -53,15 +54,16 @@ const Login = ({}) => {
         onPress={handleLogin}>
         <Text>Login</Text>
       </Button>
-      <Button bg="yellow">
+      {/* <Button bg="yellow">
         <Text>Kakao</Text>
-      </Button>
+      </Button> */}
     </Container>
   );
 };
 
 const mapDispatchToProps = dispatch => ({
   // TODO:
+  setIsLoggedin: isLoggedin => dispatch(setIsLoggedin(isLoggedin)),
 });
 
 export default connect(
